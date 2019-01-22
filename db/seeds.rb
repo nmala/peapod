@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Podcast.create(
+  podcast_title_original: "Waking Up with Sam Harris",
+  genre_id: 1
+)
+Podcast.create(
+  podcast_title_original: "Hardcore History",
+  genre_id: 1
+)
+Podcast.create(
+  podcast_title_original: "The Joe Rogan Podcast",
+  genre_id: 1
+)
+
+Episode.create(
+  title_highlighted
+)
