@@ -5,17 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Podcast.create(
+
+Genre.delete_all
+Episode.delete_all
+Podcast.delete_all
+
+Genre.create([{name: "History"}])
+
+p1 = Podcast.create(
   name: "Waking Up with Sam Harris",
-  genre_id: 1
+  genre_id: Genre.first.id
 )
-Podcast.create(
+p2 = Podcast.create(
   name: "Hardcore History",
-  genre_id: 1
+  genre_id: Genre.first.id
 )
-Podcast.create(
+p2 = Podcast.create(
   name: "The Joe Rogan Podcast",
-  genre_id: 1
+  genre_id: Genre.first.id
 )
 
 # <iframe src="https://www.listennotes.com/embedded/e/d610667d1bf14541aeb83a706bda6bff" height="170px" width="100%" style="width: 1px; min-width: 100%;" frameborder="0" scrolling="no"></iframe>
@@ -28,7 +35,7 @@ You can support the Waking Up Podcast and receive subscriber-only content at Sam
   publisher: "Sam Harris" ,
   image: "https://d3sv2eduhewoas.cloudfront.net/channel/image/699bfb9dcb0f45c4bd7fa7410c4c8f7d.jpg" ,
   audio: "https://www.listennotes.com/embedded/e/d610667d1bf14541aeb83a706bda6bff" ,
-  podcast_id: 1
+  podcast_id: p1.id
 )
 
 Episode.create(
@@ -39,7 +46,7 @@ You can support the Waking Up Podcast and receive subscriber-only content at S
   publisher: "Sam Harris" ,
   image:"https://d3sv2eduhewoas.cloudfront.net/channel/image/699bfb9dcb0f45c4bd7fa7410c4c8f7d.jpg" ,
   audio:"https://www.listennotes.com/embedded/e/75218cc14b6649049068cc391f673e16" ,
-  podcast_id: 1
+  podcast_id: p1.id
 )
 
 Episode.create(
@@ -50,15 +57,14 @@ You can support the Waking Up Podcast and receive subscriber-only content at Sam
   publisher:"Sam Harris" ,
   image:"https://d3sv2eduhewoas.cloudfront.net/channel/image/699bfb9dcb0f45c4bd7fa7410c4c8f7d.jpg" ,
   audio:"https://www.listennotes.com/embedded/e/0667279c08df4d97b8663db59cd37b37",
-  podcast_id: 1
+  podcast_id: p1.id
 )
 
-###
 Episode.create(
   name:"Show 63 - Supernova in the East II",
   description:"Deep themes run through this show, with allegations of Japanese war crimes and atrocities in China at the start leading to eerily familiar, almost modern questions over how the world should respond. And then Dec 7, 1941 arrives...",
   publisher:"Dan Carlin" ,
   image:"https://www.listennotes.com/podcasts/dan-carlins-hardcore-history-dan-carlin-THDlEiZ9tbB/#images" ,
   audio:"https://www.listennotes.com/embedded/e/db28faa02935492198aae06cf2da0e48",
-  podcast_id: 1
+  podcast_id: p2.id
 )

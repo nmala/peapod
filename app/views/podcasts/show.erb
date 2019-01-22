@@ -1,0 +1,7 @@
+<h1><%= @podcast.name %></h1>
+
+<%= link_to @podcast.genre.name, genre_path(@podcast.genre) %>
+
+<% @podcast.episodes.each do |e| %>
+  <%= link_to e.name, episode_path(e) %>
+<% end %>
