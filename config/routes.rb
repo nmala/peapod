@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   resources :genres
-  resources :users
 
   resources :podcasts
   resources :episodes
