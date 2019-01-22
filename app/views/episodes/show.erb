@@ -1,3 +1,7 @@
-<h1>Here's your podcast</h1>
+<h1>Listen to your podcast</h1>
+
+<h2><%= @episode.podcast.name %></h2>
+<h2><%= @episode.name %></h2>
+>>>>>>> prelim_pages
 
 <iframe sandbox="allow-same-origin allow-scripts allow-top-navigation allow-popups" scrolling="no" width="1100" height="185" frameborder="0" src="<%= @episode.audio %>"></iframe>

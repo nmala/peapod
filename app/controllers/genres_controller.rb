@@ -1,3 +1,10 @@
 class GenresController < ApplicationController
-  has_many :podcasts
+
+  def index
+    @genres = Genre.all
+  end
+
+  def show
+    @genre = Genre.find(params[:id])
+  end
 end
