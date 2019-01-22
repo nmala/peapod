@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_22_170230) do
+ActiveRecord::Schema.define(version: 2019_01_22_174749) do
 
   create_table "episodes", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 2019_01_22_170230) do
     t.string "image"
     t.string "rss"
     t.string "podcast_id"
+  end
+
+  create_table "podcasts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "podcast_title_original"
+    t.string "genre_id"
   end
 
 end
