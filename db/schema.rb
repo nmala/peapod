@@ -10,48 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_22_174749) do
-
-  create_table "episodes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "description"
-    t.string "publisher"
-    t.string "pub_date_ms"
-    t.string "image"
-    t.string "audio"
-    t.integer "podcast_id"
-  end
-
-  create_table "genres", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "podcasts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.integer "genre_id"
-  end
-
-  create_table "subscriptions", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "podcast_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["podcast_id"], name: "index_subscriptions_on_podcast_id"
-    t.index ["user_id"], name: "index_subscriptions_on_user_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.integer "age"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+###
+ActiveRecord::Schema.define(version: 0) do
 
 end
