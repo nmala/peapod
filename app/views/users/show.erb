@@ -1,5 +1,9 @@
 <h1>User Info</h1>
 
 <p>Username: <%= @user.username %></p>
-<p><%= "user sub'd podcasts" %></p>
+
+<h2>Subscriptions</h2>
+<% @user.podcasts.each do |p| %>
+  <p><%= p.name %></p>
+<% end %>
 <p><%= "user recent episodes" %></p>
