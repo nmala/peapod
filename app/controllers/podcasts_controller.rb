@@ -5,6 +5,7 @@ class PodcastsController < ApplicationController
   end
 
   def show
+    byebug
     @podcast = Podcast.find(params[:id])
   end
 end
