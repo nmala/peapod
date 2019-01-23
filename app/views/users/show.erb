@@ -4,6 +4,6 @@
 
 <h2>Subscriptions</h2>
 <% @user.podcasts.each do |p| %>
-  <p><%= p.name %></p>
+  <p><%= link_to p.name, podcast_path(p) %></p>
 <% end %>
 <p><%= "user recent episodes" %></p>
