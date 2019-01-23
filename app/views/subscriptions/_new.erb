@@ -1,0 +1,4 @@
+<%= form_for @subscription do |f| %>
+  <%= hidden_field_tag :podcast_id, @podcast.id %>
+  <%= f.submit "Subscribe"%>
+<% end %>
