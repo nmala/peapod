@@ -5,12 +5,9 @@ class SubscriptionsController < ApplicationController
 
   def create
     # byebug
-    @subscription = Subscription.new
-
-    @subscription.user_id = current_user.id
-    @subscription.podcast_id = params[:podcast_id]
-
-    @subscription.save
+    @subscription = Subscription.create(user_id: current_user.id, podcast_id: params[:podcast_id])
+    flash[:success] = "Subscribed to #{@subscription.podcast.name}"
+    redirect_to user_path(current_user)
   end
 
   private
