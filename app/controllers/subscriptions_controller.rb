@@ -6,7 +6,17 @@ class SubscriptionsController < ApplicationController
   def create
     # byebug
     @subscription = Subscription.create(user_id: current_user.id, podcast_id: params[:podcast_id])
-    flash[:success] = "Subscribed to #{@subscription.podcast.name}"
+    if @subscription.valid?
+      flash[:success] = "Subscribed to #{@subscription.podcast.name}"
+    else
+      flash[:errors] = @subscription.errors.full_messages
+    end
+    redirect_to user_path(current_user)
+  end
+
+  def destroy
+    @subscription = Subscription.find(params[:id])
+    @subscription.destroy
     redirect_to user_path(current_user)
   end
 

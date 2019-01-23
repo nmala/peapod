@@ -8,5 +8,6 @@ class PodcastsController < ApplicationController
   def show
     @podcast = Podcast.find(params[:id])
     @subscription = Subscription.new
+    @unsub = Subscription.find_by(podcast_id: params[:id])
   end
 end
