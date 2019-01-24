@@ -1,13 +1,16 @@
 class ApplicationController < ActionController::Base
-before_action :authorize
+  before_action :current_user
 
-def authorize # hide_pages, authorize, is_logged_in
-   if !User.find_by(id: session[:user_id])
-     redirect_to login_path
-   end
- end
   def current_user
-     # @_current_user ||= session[:current_user_id] &&
-       User.find_by(id: session[:user_id])
+      @user = (User.find_by(id: session[:user_id]) || User.new)
+   end
+
+   def logged_in?
+     current_user.id != nil
+   end
+
+   def require_logged_in
+     return redirect_to login_path unless logged_in?
+
    end
 end
