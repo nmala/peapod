@@ -1,6 +1,9 @@
 <link rel="stylesheet" href="/assets/stylesheets/index.css">
 
-<h1>All Podcasts</h1>
+<div class="all-podcasts">
+  <h1>All Podcasts</h1>
+
+
 
 <div id="card-deck-grid" class="card-deck">
   <% @podcasts.each do |p| %>
@@ -9,34 +12,23 @@
     <div class="card-body">
       <h5 class="card-title"><%= link_to p.name, podcast_path(p) %></h5>
 
-      <p class="card-text"><%= p.description %></p>
+      <p class="card-text"><%= p.short_description %></p>
+      <hr>
+      <% if current_user.podcasts.include?(p) == false %>
+          <%= form_for @subscription do |f| %>
+          <%= hidden_field_tag :podcast_id, p.id %>
+          <%= f.submit "Subscribe"%>
+          <% end %>
+
+        <% else %>
+
+          <p class ="subcribed_button"><b>Subscribed</b></p>
+      <% end %>
+
+
     </div>
   </div>
   <% end %>
 
 </div>
-
-
-
-
-
-
-
-
-
-<% @podcasts.each do |p| %>
-
-  <%= image_tag("#{p.image}") %>
-  <%= link_to p.name, podcast_path(p) %>
-
-  <% if current_user.podcasts.include?(p) == false %>
-      <%= form_for @subscription do |f| %>
-      <%= hidden_field_tag :podcast_id, p.id %>
-      <%= f.submit "Subscribe"%>
-      <% end %>
-
-    <% else %>
-      <p>Subscribed</p>
-  <% end %>
-
-<% end %>
+</div>

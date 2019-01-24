@@ -17,7 +17,7 @@
 
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <%= link_to "PeaPod", podcasts_path, class: "navbar_brand" %>
+      <%= link_to "PeaPod", root_path, class: "navbar_brand" %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -53,13 +53,7 @@
       </div>
     </nav>
 
-    <div id="mainJumbo" class="jumbotron">
-  <h1 id="specialTitle" class="display-4">PeaPod</h1>
-  <p class="lead">Feast your ears</p>
-  <hr class="my-4">
-  <p>Podcasts and more...</p>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-</div>
+
 
     <%= yield %>
   </body>

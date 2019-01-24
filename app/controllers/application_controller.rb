@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
      return redirect_to login_path unless logged_in?
 
    end
+
+   def homepage
+
+   end
 end

@@ -1,16 +1,19 @@
-<h1>Login</h1>
-
-<h4><%= flash[:failed_login] if flash[:failed_login] %></h4>
-
-<!-- form will POST to '/login' -->
-<%= form_tag(login_path) do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %>
-
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-
-  <%= submit_tag 'Login' %>
+<% if flash[:failed_login] %>
+  <div class="alert alert-dark">
+    <%= flash[:failed_login] %>
+  </div>
 <% end %>
 
-<%= button_to "Signup", new_user_path, method: :get %>
+
+<!-- form will POST to '/login' -->
+<div class="login-form">
+
+  <%= form_tag(login_path) do %>
+    <%= text_field_tag :username, nil, placeholder: 'Username', class: "form_field" %>
+
+    <%= password_field_tag :password, nil, placeholder: "Password", class: "form_field"  %>
+
+    <%= submit_tag 'Login', class: "btn btn-outline-light" %>
+    <%= link_to "Signup", new_user_path, method: :get, class: "badge badge-light" %>
+  <% end %>
+</div>
