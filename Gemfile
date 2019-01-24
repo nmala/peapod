@@ -62,3 +62,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #clearance login mini_magic
 # gem 'clearance'
+
+gem 'bootstrap'
+gem 'jquery-rails'

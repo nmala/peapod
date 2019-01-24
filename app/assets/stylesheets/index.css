@@ -1,0 +1,24 @@
+#mainJumbo{
+  background-image: url('https://images.pexels.com/photos/435798/pexels-photo-435798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') ;
+  background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+
+}
+
+
+#specialTitle{
+  color: white;
+}
+
+.jumbotron h1, hr{
+  color: white;
+}
+
+#card-deck-grid{
+margin: 2rem;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+grid-gap: 2rem;
+
+}

@@ -6,29 +6,60 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<link rel="stylesheet" href="/assets/stylesheets/index.css">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
 
   <body>
 
-    <div >
-
-        <%if session[:user_id] %>
-          <%= link_to "My Account", user_path(current_user) %>
-          <p>Signed in as: <%= current_user.username %> </p>
-          <%= button_to "Logout", logout_path, method: :delete %>
-        <%else %>
-          <%= button_to "Login", login_path, method: :get %>
-
-        <% end %>
-        <%= link_to "Podcasts", podcasts_path %>
-
-        <%= link_to "Categories", genres_path %>
 
 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <%= link_to "PeaPod", podcasts_path, class: "navbar_brand" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
 
-    </div>
+
+          <%if session[:user_id] %>
+            <li class="nav-item">
+              <%= link_to "My Account", user_path(current_user), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<%= podcasts_path %>">Podcasts <span class="sr-only">(current)</span></a>
+
+            </li>
+
+            <li class="nav-item">
+                <%= link_to "Logout", logout_path, method: :delete, class: "nav-link" %>
+            </li>
+          <% else %>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= podcasts_path %>">Podcasts <span class="sr-only">(current)</span></a>
+
+          </li>
+            <li class="nav-item">
+                <%= link_to "Login", login_path, method: :get, class: "nav-link" %>
+            </li>
+
+          <% end %>
+
+        </ul>
+        <span class="navbar-text"><%="Logged in as: #{current_user.username} " if session[:user_id]%></span>
+      </div>
+    </nav>
+
+    <div id="mainJumbo" class="jumbotron">
+  <h1 id="specialTitle" class="display-4">PeaPod</h1>
+  <p class="lead">Feast your ears</p>
+  <hr class="my-4">
+  <p>Podcasts and more...</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+</div>
 
     <%= yield %>
   </body>
