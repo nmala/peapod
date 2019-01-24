@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :require_logged_in
+  before_action :require_logged_in, only: [:show]
+
 
   def create
-    byebug
    @user = User.create(user_params)
    redirect_to user_path(@user)
  end
