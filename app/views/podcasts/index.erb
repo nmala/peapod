@@ -13,11 +13,13 @@
       <h5 class="card-title"><%= link_to p.name, podcast_path(p) %></h5>
 
       <p class="card-text"><%= p.short_description %></p>
+      <span class='badge badge-pill badge-dark'><%= link_to p.genre.name, genre_path(p.genre) %></span>
+
       <hr>
       <% if current_user.podcasts.include?(p) == false %>
           <%= form_for @subscription do |f| %>
           <%= hidden_field_tag :podcast_id, p.id %>
-          <%= f.submit "Subscribe"%>
+          <%= f.submit "Subscribe", class: "btn btn-outline-dark"%>
           <% end %>
 
         <% else %>

@@ -3,7 +3,18 @@
   background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
+  height: 90vh;
+}
 
+.badge-pill a{
+  color: white;
+}
+.badge-pill a:hover{
+  color: white;
+}
+
+#mainJumbo p{
+  color: white;
 }
 
 
