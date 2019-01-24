@@ -6,6 +6,8 @@
   <%= link_to e.name, episode_path(e) %>
 <% end %>
 
+<%= @podcast.description %>
+
 
 <%= render 'subscriptions/new' %>
 <%= render 'subscriptions/delete' %>
