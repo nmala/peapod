@@ -2,7 +2,7 @@
 
 <% @podcasts.each do |p| %>
 
-
+  <%= image_tag("#{p.image}") %>
   <%= link_to p.name, podcast_path(p) %>
 
   <% if current_user.podcasts.include?(p) == false %>
@@ -12,9 +12,7 @@
       <% end %>
 
     <% else %>
-    <%= form_for @subscription do |f| %>
-    <%= hidden_field_tag :podcast_id, p.id %>
-    <% end %>
+      <p>Subscribed</p>
   <% end %>
 
 <% end %>

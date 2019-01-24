@@ -21,6 +21,7 @@ history_podcasts_hash = history_json["channels"]
 history_podcasts_hash.each do |p|
   Podcast.create(
     name: p["title"],
+    image: p["image"],
     api_id: p["id"],
     description: p["description"],
     genre_id: Genre.find_by(name: "History").id
@@ -36,6 +37,7 @@ music_podcasts_hash = music_json["channels"]
 music_podcasts_hash.each do |p|
   Podcast.create(
     name: p["title"],
+    image: p["image"],
     api_id: p["id"],
     description: p["description"],
     genre_id: Genre.find_by(name: "Music").id
@@ -50,6 +52,7 @@ technology_podcasts_hash = technology_json["channels"]
 technology_podcasts_hash.each do |p|
   Podcast.create(
     name: p["title"],
+    image: p["image"],
     api_id: p["id"],
     description: p["description"],
     genre_id: Genre.find_by(name: "Technology").id
@@ -64,6 +67,7 @@ comedy_podcasts_hash = comedy_json["channels"]
 comedy_podcasts_hash.each do |p|
   Podcast.create(
     name: p["title"],
+    image: p["image"],
     api_id: p["id"],
     description: p["description"],
     genre_id: Genre.find_by(name: "Comedy").id
@@ -78,6 +82,7 @@ philosophy_podcasts_hash = philosophy_json["channels"]
 philosophy_podcasts_hash.each do |p|
   Podcast.create(
     name: p["title"],
+    image: p["image"],
     api_id: p["id"],
     description: p["description"],
     genre_id: Genre.find_by(name: "Philosophy").id
