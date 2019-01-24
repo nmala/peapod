@@ -7,3 +7,5 @@ class User < ApplicationRecord
     self.email.split('@').first.capitalize
   end
 end
+
+###
