@@ -1,16 +1,18 @@
 <h1><%= @podcast.name %></h1>
 
-<%= link_to @podcast.genre.name, genre_path(@podcast.genre) %>
+<img src="<%= @podcast.episodes.first.image %>" alt="">
 
+<%= link_to @podcast.genre.name, genre_path(@podcast.genre) %>
+<%= @podcast.description %>
 <% @podcast.episodes.each do |e| %>
   <%= link_to e.name, episode_path(e) %>
 <% end %>
 
-<%= @podcast.description %>
 
 
-<%= render 'subscriptions/new' %>
+<% if current_user.podcasts.include?(@podcast) %>
+
 <%= render 'subscriptions/delete' %>
-
-
-a button that takes us somewhere and associates the current user with the current podcast id
+<% else %>
+<%= render 'subscriptions/new' %>
+<% end %>

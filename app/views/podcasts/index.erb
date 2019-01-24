@@ -1,9 +1,20 @@
 <h1>All Podcasts</h1>
 
 <% @podcasts.each do |p| %>
+
+
   <%= link_to p.name, podcast_path(p) %>
-  <%= form_for @subscription do |f| %>
+
+  <% if current_user.podcasts.include?(p) == false %>
+      <%= form_for @subscription do |f| %>
+      <%= hidden_field_tag :podcast_id, p.id %>
+      <%= f.submit "Subscribe"%>
+      <% end %>
+
+    <% else %>
+    <%= form_for @subscription do |f| %>
     <%= hidden_field_tag :podcast_id, p.id %>
-    <%= f.submit "Subscribe"%>
+    <% end %>
   <% end %>
+
 <% end %>
