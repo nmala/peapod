@@ -114,4 +114,5 @@ grid-gap: 2rem;
 footer{
   height: 25vh;
   background-color: #f8f9fa;
+  display: flex;
 }
