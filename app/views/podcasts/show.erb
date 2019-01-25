@@ -1,18 +1,65 @@
+<link rel="stylesheet" href="/assets/stylesheets/index.css">
+
+
+<div class="all-podcasts">
+<div class="podcast-show">
+
+
+
+
+<img src="<%= @podcast.image %>" class="rounded float-left" alt="...">
+
+<div class="copy">
+
+
 <h1><%= @podcast.name %></h1>
 
-<img src="<%= @podcast.episodes.first.image %>" alt="">
 
-<%= link_to @podcast.genre.name, genre_path(@podcast.genre) %>
 <%= @podcast.description %>
-<% @podcast.episodes.each do |e| %>
-  <%= link_to e.name, episode_path(e) %>
-<% end %>
-
-
-
+<p><%= link_to @podcast.genre.name, genre_path(@podcast.genre) %></p>
 <% if current_user.podcasts.include?(@podcast) %>
 
 <%= render 'subscriptions/delete' %>
 <% else %>
 <%= render 'subscriptions/new' %>
 <% end %>
+</div>
+</div>
+<div class="episodes">
+
+
+    <h2>Episodes</h2>
+
+
+
+
+
+    <div id="card-deck-grid" class="card-deck">
+  <% @podcast.episodes.each do |e| %>
+
+  <div class="card">
+
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to e.name, episode_path(e) %></h5>
+
+      <p class="card-text"><%= e.description.slice(0..60) %>...</p>
+
+
+
+
+
+
+    </div>
+  </div>
+  <% end %>
+
+</div>
+
+
+
+
+
+
+
+</div>
+</div>

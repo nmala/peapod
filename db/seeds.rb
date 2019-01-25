@@ -7,42 +7,42 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 ##
 
-Genre.create([{name: "History", api_id: 125}, {name: "Music", api_id: 134}, {name: "Technology", api_id: 127}, {name: "Comedy", api_id: 133}, {name: "Philosophy", api_id: 126}])
-
-# ############################
-# # API functionality
+# Genre.create([{name: "History", api_id: 125}, {name: "Music", api_id: 134}, {name: "Technology", api_id: 127}, {name: "Comedy", api_id: 133}, {name: "Philosophy", api_id: 126}])
+#
+# # ############################
+# # # API functionality
 API_KEY='xlqn4KLqmDmshLmLk6m8YC3xebgxp1oavkzjsn2HlTXS3R7HSk'
-
-history = Genre.find_by(name: "History").api_id
-history_response = RestClient.get("api.listennotes.com/api/v1/best_podcasts?genre_id=#{history}", {'X-Mashape-Key': API_KEY, accept: :json})
-history_json = JSON.parse(history_response)
-history_podcasts_hash = history_json["channels"]
-
-history_podcasts_hash.each do |p|
-  Podcast.create(
-    name: p["title"],
-    image: p["image"],
-    api_id: p["id"],
-    description: p["description"],
-    genre_id: Genre.find_by(name: "History").id
-  )
-end
-
-
-music = Genre.find_by(name: "Music").api_id
-music_response = RestClient.get("api.listennotes.com/api/v1/best_podcasts?genre_id=#{music}", {'X-Mashape-Key': API_KEY, accept: :json})
-music_json = JSON.parse(music_response)
-music_podcasts_hash = music_json["channels"]
-
-music_podcasts_hash.each do |p|
-  Podcast.create(
-    name: p["title"],
-    image: p["image"],
-    api_id: p["id"],
-    description: p["description"],
-    genre_id: Genre.find_by(name: "Music").id
-  )
-end
+#
+# history = Genre.find_by(name: "History").api_id
+# history_response = RestClient.get("api.listennotes.com/api/v1/best_podcasts?genre_id=#{history}", {'X-Mashape-Key': API_KEY, accept: :json})
+# history_json = JSON.parse(history_response)
+# history_podcasts_hash = history_json["channels"]
+#
+# history_podcasts_hash.each do |p|
+#   Podcast.create(
+#     name: p["title"],
+#     image: p["image"],
+#     api_id: p["id"],
+#     description: p["description"],
+#     genre_id: Genre.find_by(name: "History").id
+#   )
+# end
+#
+#
+# music = Genre.find_by(name: "Music").api_id
+# music_response = RestClient.get("api.listennotes.com/api/v1/best_podcasts?genre_id=#{music}", {'X-Mashape-Key': API_KEY, accept: :json})
+# music_json = JSON.parse(music_response)
+# music_podcasts_hash = music_json["channels"]
+#
+# music_podcasts_hash.each do |p|
+#   Podcast.create(
+#     name: p["title"],
+#     image: p["image"],
+#     api_id: p["id"],
+#     description: p["description"],
+#     genre_id: Genre.find_by(name: "Music").id
+#   )
+# end
 
 technology = Genre.find_by(name: "Technology").api_id
 technology_response = RestClient.get("api.listennotes.com/api/v1/best_podcasts?genre_id=#{technology}", {'X-Mashape-Key': API_KEY, accept: :json})
@@ -96,7 +96,7 @@ def get_episodes(p)
   response_hash = JSON.parse(response)
   response_hash["results"] # episodes for given podcast
 end
-
+#
 def all_episodes
   Podcast.all.each do |p|
     get_episodes(p).each do |e|

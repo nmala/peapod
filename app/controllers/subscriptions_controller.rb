@@ -11,7 +11,7 @@ class SubscriptionsController < ApplicationController
     else
       flash[:errors] = @subscription.errors.full_messages
     end
-    redirect_to user_path(current_user)
+    redirect_to podcasts_path
   end
 
   def destroy
