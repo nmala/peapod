@@ -110,3 +110,8 @@ grid-gap: 2rem;
   border-bottom: 1px solid #e3e3e3 !important;
   border-radius: 0.25rem !important;
 }
+
+footer{
+  height: 25vh;
+  background-color: #f8f9fa;
+}
