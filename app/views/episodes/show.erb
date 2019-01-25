@@ -1,7 +1,21 @@
-<h1>Listen to your podcast</h1>
 
-<h2><%= link_to @episode.podcast.name, podcast_path(@episode.podcast) %></h2>
+<div class="custom-container">
+
+
+
+<div class="">
+
+
 <h2><%= @episode.name %></h2>
-<h2><%= link_to @episode.podcast.genre.name, genre_path(@episode.podcast.genre) %></h2>
+<h4><%= link_to @episode.podcast.name, podcast_path(@episode.podcast) %></h4>
+<p><%= @episode.description %></p>
+<span class='badge badge-pill badge-dark'><%= link_to @episode.podcast.genre.name, genre_path(@episode.podcast.genre) %></span>
+</div>
 
-<iframe sandbox="allow-same-origin allow-scripts allow-top-navigation allow-popups" scrolling="no" width="1100" height="185" frameborder="0" src="<%= @episode.audio %>"></iframe>
+
+
+<div class="player">
+<iframe sandbox="allow-same-origin allow-scripts allow-top-navigation allow-popups" scrolling="no" frameborder="0" src="<%= @episode.audio %>"></iframe>
+</div>
+
+</div>

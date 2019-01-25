@@ -1,5 +1,34 @@
-<h1><%= @genre.name %></h1>
+<div class="custom-container">
+  <h1><%= @genre.name %></h1>
 
-<% @genre.podcasts.each do |p| %>
-  <%= link_to p.name, podcast_path(p) %>
-<% end %>
+
+
+<div id="card-deck-grid" class="card-deck">
+  <% @genre.podcasts.each do |p| %>
+  <div class="card">
+    <%= image_tag("#{p.image}", class:"card-img-top") %>
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to p.name, podcast_path(p) %></h5>
+
+      <p class="card-text"><%= p.short_description %></p>
+
+      <hr>
+      <% if current_user.podcasts.include?(p) == false %>
+          <%= form_for @subscription do |f| %>
+          <%= hidden_field_tag :podcast_id, p.id %>
+          <%= f.submit "Subscribe", class: "btn btn-outline-dark"%>
+          <% end %>
+
+        <% else %>
+
+          <p class ="subcribed_button"><b>Subscribed</b></p>
+      <% end %>
+
+
+    </div>
+  </div>
+  <% end %>
+
+</div>
+
+</div>

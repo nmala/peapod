@@ -1,8 +1,11 @@
-<h1>Create New User</h1>
 
-<%= form_for :user, url: '/users' do |f| %>
-  Username: <%= f.text_field :username %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
-<% end %>
+
+<div class="login-form">
+  <%= form_for :user, url: '/users' do |f| %>
+    <%= f.text_field :username, placeholder: 'Username', class: "form_field" %>
+    <%= f.password_field :password, placeholder: "Password", class: "form_field" %>
+    <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: "form_field" %>
+    <%= f.submit "Signup", class: "btn btn-outline-light"  %>
+  <% end %>
+
+</div>

@@ -1,19 +1,12 @@
-<link rel="stylesheet" href="/assets/stylesheets/index.css">
-
-<div class="custom-container">
-  <h1>All Podcasts</h1>
-
-
 
 <div id="card-deck-grid" class="card-deck">
-  <% @podcasts.each do |p| %>
-  <div class="card">
+  <% Genre.find_by(name: "Comedy").podcasts.each do |p| %>
+  <div class="card custom-card">
     <%= image_tag("#{p.image}", class:"card-img-top") %>
     <div class="card-body">
       <h5 class="card-title"><%= link_to p.name, podcast_path(p) %></h5>
 
       <p class="card-text"><%= p.short_description %></p>
-      <span class='badge badge-pill badge-dark'><%= link_to p.genre.name, genre_path(p.genre) %></span>
 
       <hr>
       <% if current_user.podcasts.include?(p) == false %>
@@ -32,5 +25,4 @@
   </div>
   <% end %>
 
-</div>
 </div>

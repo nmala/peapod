@@ -1,5 +1,6 @@
-<div class="all-podcasts">
+<div class="custom-container">
   <h1>Subscriptions</h1>
+
 
   <div id="card-deck-grid" class="card-deck">
     <% @user.podcasts.each do |p| %>
@@ -13,5 +14,13 @@
       </div>
     </div>
     <% end %>
+
+
+
+</div>
+
+<% if @user.subscriptions.length == 0 %>
+  <p>You are currently not subscribed to any podcasts. Check them out <%= link_to "here", podcasts_path %>.</p>
+<% end %>
 
 </div>
